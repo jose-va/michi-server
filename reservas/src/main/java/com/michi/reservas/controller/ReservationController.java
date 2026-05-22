@@ -1,0 +1,71 @@
+package com.michi.reservas.controller;
+
+import com.michi.reservas.dto.AvailableHoursDTO;
+import com.michi.reservas.dto.ReservationDTO;
+import com.michi.reservas.mail.EmailService;
+import com.michi.reservas.service.ReservationService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@RestController
+@Validated
+@RequiredArgsConstructor
+@RequestMapping("/reservations")
+public class ReservationController {
+
+    private final ReservationService reservationService;
+    private final EmailService emailService;
+
+    @GetMapping("/hours")
+    public AvailableHoursDTO hours(
+            @RequestParam LocalDate date,
+            @RequestParam int guests) {
+        return reservationService.findAvailableHours(date, guests);
+    }
+
+    public List<ReservationDTO> findAll(){
+        return reservationService.findAll();
+    }
+
+    @PostMapping
+    public ReservationDTO create(@RequestBody ReservationDTO dto){
+//        emailService.sendEmail(dto);
+        return reservationService.create(dto);
+    }
+
+    @GetMapping
+    public List<ReservationDTO> findAll(
+            @RequestHeader("User-Role") String role) {
+        checkAdmin(role);
+        return reservationService.findAll();
+    }
+
+    @PutMapping("/{id}")
+    public ReservationDTO update(
+            @RequestBody ReservationDTO dto,
+            @PathVariable String id,
+            @RequestHeader("User-Role") String role) {
+        checkAdmin(role);
+        return reservationService.update(dto, id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(
+            @PathVariable String id,
+            @RequestHeader("User-Role") String role) {
+        checkAdmin(role);
+        reservationService.delete(id);
+    }
+
+    private void checkAdmin(String role) {
+        if (!role.equals("ROLE_ADMIN")) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Acceso prohíbido");
+        }
+    }
+}
