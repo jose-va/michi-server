@@ -1,0 +1,1722 @@
+[
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c783"
+    },
+    "title": "Gyozas de pollo",
+    "japaneseName": "餃子",
+    "description": "Empanadillas japonesas rellenas de pollo, doradas por la base y jugosas por dentro. Servidas con salsa tradicional.",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "GLUTEN",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS"
+    ],
+    "pieces": 6,
+    "price": 6.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c784"
+    },
+    "title": "Gyozas de verduras",
+    "japaneseName": "餃子",
+    "description": "Empanadillas japonesas rellenas de verduras, doradas por la base y jugosas por dentro. Servidas con salsa tradicional.",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "GLUTEN",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS"
+    ],
+    "pieces": 6,
+    "price": 6.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c785"
+    },
+    "title": "Ebi furai",
+    "japaneseName": "海老フライ",
+    "description": "Langostinos empanados al estilo japonés, dorados y crujientes, acompañados de salsa sweet chili (dulce y picante).",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "CRUSTACEANS",
+      "GLUTEN",
+      "EGGS"
+    ],
+    "pieces": 4,
+    "price": 7.25,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c786"
+    },
+    "title": "Tori katsu",
+    "japaneseName": "鶏カツ",
+    "description": "Tiras de pollo empanado al estilo japonés, exterior crujiente y jugoso por dentro, acompañados de salsa tonkatsu (agria y dulce japonesa).",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "GLUTEN",
+      "EGGS",
+      "MILK",
+      "SOYBEANS"
+    ],
+    "pieces": 4,
+    "price": 7.25,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c787"
+    },
+    "title": "Misoshiru - Sopa de miso",
+    "japaneseName": "味噌汁",
+    "description": "Nuestra versión del clásico caldo japonés, ligero y reconfortante. Con dados de tofu, alga wakame hidratada y cebollino.",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "SOYBEANS"
+    ],
+    "pieces": 0,
+    "price": 4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c788"
+    },
+    "title": "Takoyaki",
+    "japaneseName": "たこ焼き",
+    "description": "Buñuelos de trigo rellenos de pulpo, bañados en salsa especial y mayonesa japonesa, coronado con cebollino y katsuobushi (copos de bonito seco).",
+    "category": "HOT_STARTERS",
+    "allergens": [
+      "GLUTEN",
+      "EGGS",
+      "MOLLUSCS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "MUSTARD",
+      "FISH"
+    ],
+    "pieces": 4,
+    "price": 6.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c789"
+    },
+    "title": "Goma Wakame",
+    "japaneseName": "中華わかめ",
+    "description": "Ensalada de alga wakame. (Añade Extra de aguacate por sólo +0,70€)",
+    "category": "FRESH_STARTERS",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 0,
+    "price": 5.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78a"
+    },
+    "title": "Ensalada Toyotama",
+    "japaneseName": "豊玉",
+    "description": "Wakame, kanikama, dados de aguacate, salmón y atún, bañado con salsa especial, coronado con cebollino y semillas de sésamo tostado.",
+    "category": "FRESH_STARTERS",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "GLUTEN",
+      "EGGS",
+      "CRUSTACEANS"
+    ],
+    "pieces": 0,
+    "price": 11.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78b"
+    },
+    "title": "Tartar de salmón 100gr",
+    "japaneseName": "タルタル",
+    "description": "Dados de salmón fresco marinados, servidos con base de aguacate y aliño especial.",
+    "category": "FRESH_STARTERS",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "MILK",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 0,
+    "price": 15.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78c"
+    },
+    "title": "Tartar de atún 100gr",
+    "japaneseName": "タルタル",
+    "description": "Dados de atún rojo marinados, servidos con base de aguacate y aliño especial.",
+    "category": "FRESH_STARTERS",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "MILK",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 0,
+    "price": 19.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78d"
+    },
+    "title": "Sogizukuri Salmón",
+    "japaneseName": "そぎ造り",
+    "description": "Cortes de salmón con un toque de mayo kimuchi, ralladura de limón, cebollino y huevas de salmón (ikura) acompañado de salsa soja cítrica.",
+    "category": "SOGIZUKURI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "MUSTARD",
+      "SOYBEANS"
+    ],
+    "pieces": 0,
+    "price": 9.6,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78e"
+    },
+    "title": "Sogizukuri Atún",
+    "japaneseName": "そぎ造り",
+    "description": "Cortes de atún con un toque picante, cebollino, ito togarashi (hilos de chile deshidratado) y masago (huevas de pez capelán) acompañado de salsa especial.",
+    "category": "SOGIZUKURI",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 0,
+    "price": 14.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c78f"
+    },
+    "title": "Sogizukuri Lubina",
+    "japaneseName": "そぎ造り",
+    "description": "Cortes de lubina con un toque de salsa trufada, aceite de oliva, germinado de cebolleta y escamas de sal, acompañado de salsa ligera.",
+    "category": "SOGIZUKURI",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 0,
+    "price": 9.6,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c790"
+    },
+    "title": "Fideos Yakisoba de Verduras",
+    "japaneseName": "焼きそば",
+    "description": "Fideos salteados con verduras y salsa especial de la casa.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "MOLLUSCS"
+    ],
+    "pieces": 0,
+    "price": 6.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c791"
+    },
+    "title": "Fideos Yakisoba de Pollo",
+    "japaneseName": "焼きそば",
+    "description": "Fideos salteados con verduras, pollo y salsa especial de la casa.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "MOLLUSCS"
+    ],
+    "pieces": 0,
+    "price": 7.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c792"
+    },
+    "title": "Fideos Yakisoba de Langostino",
+    "japaneseName": "焼きそば",
+    "description": "Fideos salteados con verduras, langostinos y salsa especial de la casa.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "MOLLUSCS",
+      "CRUSTACEANS"
+    ],
+    "pieces": 0,
+    "price": 10.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c793"
+    },
+    "title": "Yakimeshi de Verduras",
+    "japaneseName": "焼き飯",
+    "description": "Arroz salteado estilo japonés, aromático y umami con huevo.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "MILK"
+    ],
+    "pieces": 0,
+    "price": 6.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c794"
+    },
+    "title": "Yakimeshi de Pollo",
+    "japaneseName": "焼き飯",
+    "description": "Arroz salteado estilo japonés con pollo, aromático y umami con huevo.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "MILK"
+    ],
+    "pieces": 0,
+    "price": 7.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c795"
+    },
+    "title": "Yakimeshi de Langostino",
+    "japaneseName": "焼き飯",
+    "description": "Arroz salteado estilo japonés con langostinos, aromático y umami con huevo.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "FISH",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "MILK"
+    ],
+    "pieces": 0,
+    "price": 9.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c796"
+    },
+    "title": "Katsudon",
+    "japaneseName": "カツ丼",
+    "description": "Bol de arroz con lomo empanado, salsa tonkatsu, aguacate y huevo frito.",
+    "category": "HOT_DISHES",
+    "allergens": [
+      "EGGS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK"
+    ],
+    "pieces": 0,
+    "price": 8.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c797"
+    },
+    "title": "Nigiri Salmón",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con corte de salmón.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 1.6,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c798"
+    },
+    "title": "Nigiri Atún",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con corte de atún.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 2.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c799"
+    },
+    "title": "Nigiri Lubina",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con corte de lubina.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 1.6,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79a"
+    },
+    "title": "Nigiri Anguila",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con corte de anguila.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 2.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79b"
+    },
+    "title": "Nigiri Aguacate",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con aguacate.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 1.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79c"
+    },
+    "title": "Nigiri Tamagoyaki",
+    "japaneseName": "握り寿司",
+    "description": "Bolita de arroz prensado a mano coronada con tortilla japonesa.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 1.6,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79d"
+    },
+    "title": "Nigiri Salmón y mayo kimuchi flameado",
+    "japaneseName": "握り寿司",
+    "description": "Flameado y coronado con huevas de salmón.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "MUSTARD",
+      "GLUTEN",
+      "SOYBEANS"
+    ],
+    "pieces": 1,
+    "price": 2.1,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79e"
+    },
+    "title": "Nigiri Atún y foie flameado",
+    "japaneseName": "握り寿司",
+    "description": "Con un toque de mermelada de cerveza oscura y perlas de arroz crujiente.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 2.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c79f"
+    },
+    "title": "Nigiri Lubina flameada",
+    "japaneseName": "握り寿司",
+    "description": "Coronada con salsa trufada y cebollino.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 1,
+    "price": 2.1,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a0"
+    },
+    "title": "Combinado Nigiri variado",
+    "japaneseName": "握り寿司",
+    "description": "2 nigiri salmon, 2 nigiri atun, 2 nigiri lubina, 2 nigiri anguila flameada, 2 nigiri tamagoyaki.",
+    "category": "NIGIRI_SUSHI",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "SOYBEANS",
+      "EGGS"
+    ],
+    "pieces": 10,
+    "price": 18.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a1"
+    },
+    "title": "Gunkan Salmón marinado",
+    "japaneseName": "鮭軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de salmón marinado.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2.25,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a2"
+    },
+    "title": "Gunkan Atún picante",
+    "japaneseName": "スパイシー鮪軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de atún picante.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a3"
+    },
+    "title": "Gunkan Lubina y mayo trufa",
+    "japaneseName": "鱸トリュフ軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de lubina y mayonesa trufada.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a4"
+    },
+    "title": "Gunkan Kanikama y mayo kimuchi",
+    "japaneseName": "カニカマ軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de kanikama y mayonesa kimuchi.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "CRUSTACEANS",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a5"
+    },
+    "title": "Gunkan Aguacate y furikake",
+    "japaneseName": "アボカド軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de aguacate y furikake.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a6"
+    },
+    "title": "Gunkan Goma wakame",
+    "japaneseName": "わかめ軍艦",
+    "description": "Bola de arroz envuelta en alga nori con topping de ensalada goma wakame.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a7"
+    },
+    "title": "Gunkan Aka-shita",
+    "japaneseName": "赤舌軍艦",
+    "description": "Bola de arroz envuelta en alga nori con langostino crunch y salmón.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "CRUSTACEANS",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2.75,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a8"
+    },
+    "title": "Gunkan Nikkei",
+    "japaneseName": "日系軍艦",
+    "description": "Bola de arroz envuelta en alga nori con lubina acevichada.",
+    "category": "GUNKAN_SUSHI",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 2.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7a9"
+    },
+    "title": "Sake zuke don",
+    "japaneseName": "鮭漬け丼",
+    "description": "Bol de arroz con salmón marinado, aguacate, pepino, algas goma wakame, huevas de salmón y yema de huevo.",
+    "category": "ZUKE_DON",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS"
+    ],
+    "pieces": 0,
+    "price": 10.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7aa"
+    },
+    "title": "Maguro zuke don",
+    "japaneseName": "鮪漬け丼",
+    "description": "Bol de arroz con atún marinado, aguacate, pepino, algas goma wakame, yema de huevo y cebollino fresco.",
+    "category": "ZUKE_DON",
+    "allergens": [
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS"
+    ],
+    "pieces": 0,
+    "price": 12.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ab"
+    },
+    "title": "Temaki Salmón",
+    "japaneseName": "鮭手巻き",
+    "description": "Cono de alga nori enrollado a mano, relleno de arroz y cortes de salmón.",
+    "category": "TEMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 5.45,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ac"
+    },
+    "title": "Temaki Atún",
+    "japaneseName": "鮪手巻き",
+    "description": "Cono de alga nori enrollado a mano, relleno de arroz y cortes de atún.",
+    "category": "TEMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 7.7,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ad"
+    },
+    "title": "Temaki Kanikama",
+    "japaneseName": "カニカマ手巻き",
+    "description": "Cono de alga nori enrollado a mano, relleno de arroz y kanikama.",
+    "category": "TEMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS",
+      "CRUSTACEANS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 4.8,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ae"
+    },
+    "title": "Temaki Langostino",
+    "japaneseName": "海老手巻き",
+    "description": "Cono de alga nori enrollado a mano, relleno de arroz y langostino.",
+    "category": "TEMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS",
+      "CRUSTACEANS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 5.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7af"
+    },
+    "title": "Temaki Anguila",
+    "japaneseName": "鰻手巻き",
+    "description": "Cono de alga nori enrollado a mano, relleno de arroz y anguila.",
+    "category": "TEMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 1,
+    "price": 7,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b0"
+    },
+    "title": "Sakemaki (Salmón)",
+    "japaneseName": "鮭巻き",
+    "description": "Rollo de sushi elaborado con arroz y salmón en su interior, envuelto en alga nori.",
+    "category": "HOSOMAKI",
+    "allergens": [
+      "FISH"
+    ],
+    "pieces": 8,
+    "price": 6.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b1"
+    },
+    "title": "Tekkamaki (Atún)",
+    "japaneseName": "鉄火巻き",
+    "description": "Rollo de sushi elaborado con arroz y atún en su interior, envuelto en alga nori.",
+    "category": "HOSOMAKI",
+    "allergens": [
+      "FISH"
+    ],
+    "pieces": 8,
+    "price": 6.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b2"
+    },
+    "title": "Kappamaki",
+    "japaneseName": "河童巻き",
+    "description": "Rollo de sushi elaborado con arroz y pepino en su interior, envuelto en alga nori.",
+    "category": "HOSOMAKI",
+    "allergens": [],
+    "pieces": 8,
+    "price": 5.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b3"
+    },
+    "title": "Maki aguacate",
+    "japaneseName": "アボカド巻き",
+    "description": "Rollo de sushi elaborado con arroz y aguacate en su interior, envuelto en alga nori.",
+    "category": "HOSOMAKI",
+    "allergens": [],
+    "pieces": 8,
+    "price": 5.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b4"
+    },
+    "title": "Katsu Sakemaki",
+    "japaneseName": "カツ巻き",
+    "description": "Crujiente rollito de salmón, con un toque de mayonesa kimuchi, salsa de anguila y sésamo tostado.",
+    "category": "KATSUMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "FISH",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SULPHUR_DIOXIDE"
+    ],
+    "pieces": 8,
+    "price": 8,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b5"
+    },
+    "title": "Katsu aguacate trufa",
+    "japaneseName": "カツ巻き",
+    "description": "Crujiente rollito de aguacate, coronado con queso crema, salsa trufada y germinados de cebolleta.",
+    "category": "KATSUMAKI",
+    "allergens": [
+      "EGGS",
+      "MILK",
+      "GLUTEN"
+    ],
+    "pieces": 8,
+    "price": 8,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b6"
+    },
+    "title": "Filadelfia",
+    "japaneseName": "フィラデルフィア",
+    "description": "Salmón, aguacate, queso crema y sésamo negro.",
+    "category": "URAMAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "FISH",
+      "MILK"
+    ],
+    "pieces": 8,
+    "price": 8.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b7"
+    },
+    "title": "California",
+    "japaneseName": "カリフォルニアロール",
+    "description": "Kanikama, pepino, aguacate, mayonesa japonesa y masago.",
+    "category": "URAMAKI",
+    "allergens": [
+      "GLUTEN",
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS"
+    ],
+    "pieces": 8,
+    "price": 7.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b8"
+    },
+    "title": "Alaska",
+    "japaneseName": "アラスカロール",
+    "description": "Kanikama, queso crema y aguacate, con cobertura de salmón.",
+    "category": "URAMAKI",
+    "allergens": [
+      "FISH",
+      "SESAME_SEEDS",
+      "MILK"
+    ],
+    "pieces": 8,
+    "price": 9.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7b9"
+    },
+    "title": "Maguro",
+    "japaneseName": "鮪裏巻き",
+    "description": "Atún rojo, pepino, aguacate y sésamo tostado.",
+    "category": "URAMAKI",
+    "allergens": [
+      "FISH",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 10.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ba"
+    },
+    "title": "Ebi",
+    "japaneseName": "海老裏巻き",
+    "description": "Langostino crujiente y mayo kimuchi, cubierto de aguacate en láminas y furikake.",
+    "category": "URAMAKI",
+    "allergens": [
+      "CRUSTACEANS",
+      "EGGS",
+      "SULPHUR_DIOXIDE",
+      "SESAME_SEEDS",
+      "MILK"
+    ],
+    "pieces": 8,
+    "price": 9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7bb"
+    },
+    "title": "Tori Katsu",
+    "japaneseName": "鶏カツ裏巻き",
+    "description": "Pollo crujiente, sésamo tostado, aguacate y queso crema, bañado en salsa tonkatsu y mayo kimuchi.",
+    "category": "URAMAKI",
+    "allergens": [
+      "GLUTEN",
+      "MILK",
+      "SESAME_SEEDS",
+      "SOYBEANS",
+      "MOLLUSCS"
+    ],
+    "pieces": 8,
+    "price": 8,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7bc"
+    },
+    "title": "Futomaki Salmón",
+    "japaneseName": "太巻き",
+    "description": "Salmón, queso crema, aguacate.",
+    "category": "FUTOMAKI",
+    "allergens": [
+      "FISH",
+      "MILK"
+    ],
+    "pieces": 10,
+    "price": 10.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7bd"
+    },
+    "title": "Futomaki Maguro",
+    "japaneseName": "太巻き",
+    "description": "Atún rojo, pepino, aguacate y salsa mayo kimuchi.",
+    "category": "FUTOMAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "MOLLUSCS"
+    ],
+    "pieces": 10,
+    "price": 12.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7be"
+    },
+    "title": "Futomaki Ebi",
+    "japaneseName": "太巻き",
+    "description": "Langostino crujiente, aguacate, queso crema.",
+    "category": "FUTOMAKI",
+    "allergens": [
+      "EGGS",
+      "CRUSTACEANS",
+      "MILK",
+      "GLUTEN",
+      "MOLLUSCS"
+    ],
+    "pieces": 10,
+    "price": 11,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7bf"
+    },
+    "title": "Futomaki Unagi",
+    "japaneseName": "太巻き",
+    "description": "Anguila braseada, pepino y aguacate, bañada en salsa de anguila.",
+    "category": "FUTOMAKI",
+    "allergens": [
+      "SOYBEANS",
+      "GLUTEN",
+      "FISH"
+    ],
+    "pieces": 10,
+    "price": 11.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c0"
+    },
+    "title": "Michi Maki",
+    "japaneseName": "道",
+    "description": "Rollo elaborado con papel de soja, salmón, aguacate y kanikama, bañado en salsa de anguila, mayo kimuchi y coronado con masago.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "SOYBEANS",
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "MOLLUSCS",
+      "GLUTEN"
+    ],
+    "pieces": 10,
+    "price": 14.25,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c1"
+    },
+    "title": "Ebi Assari",
+    "japaneseName": "海老あっさり",
+    "description": "Rollo elaborado con papel de soja, langostino en tempura, kanikama y aguacate, bañado en salsa de tamarindo, mayo kimuchi y coronado con cebollino.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "SOYBEANS",
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "MOLLUSCS",
+      "GLUTEN"
+    ],
+    "pieces": 10,
+    "price": 13.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c2"
+    },
+    "title": "Maguro Especial",
+    "japaneseName": "特製まぐろ",
+    "description": "Atún, pepino y aguacate, cubierto de láminas de atún y foie, flameado y terminado con un toque de mermelada de cerveza tostada y perlas de arroz crujiente.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "GLUTEN"
+    ],
+    "pieces": 8,
+    "price": 15.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c3"
+    },
+    "title": "Maguro Spicy",
+    "japaneseName": "スパイシーまぐろ",
+    "description": "Aguacate y pepino, coronado con atún aliñado picante y cebollino.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "SESAME_SEEDS",
+      "SOYBEANS"
+    ],
+    "pieces": 8,
+    "price": 14.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c4"
+    },
+    "title": "Doragon",
+    "japaneseName": "ドラゴン",
+    "description": "Langostinos crujientes, mayo kimuchi y aguacate, cubierto de anguila flameada y bañados en salsa de anguila y furikake.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "CRUSTACEANS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "MILK",
+      "EGGS",
+      "FISH"
+    ],
+    "pieces": 8,
+    "price": 14.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c5"
+    },
+    "title": "Trópico",
+    "japaneseName": "トロピカルマキ",
+    "description": "Salmón crujiente, kanikama, mayonesa japonesa, cebollino y aguacate, cubierto con láminas de plátano macho maduro y bañado en salsa de anguila y sésamo tostado.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 13.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c6"
+    },
+    "title": "Tamago-sake",
+    "japaneseName": "玉子鮭巻き",
+    "description": "Tortilla japonesa (tamagoyaki), queso crema, cebollino y aguacate, cubierto por láminas de salmón y coronado con wakame y huevas de salmón (ikura).",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 13.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c7"
+    },
+    "title": "Ebi Pasión",
+    "japaneseName": "海老パッション",
+    "description": "Kanikama, mayonesa japonesa, aguacate y masago, coronado con langostinos crujientes, salsa especial de maracuyá y sésamo negro.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 13.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c8"
+    },
+    "title": "Hitokiri",
+    "japaneseName": "人斬りマキ",
+    "description": "Anguila crujiente, queso crema, cebollino y salmón, cubierto con aguacate, coronado con ensaladilla de wakame y kanikama y terminado con salsa de anguila y perlas de arroz crujiente.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 15,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7c9"
+    },
+    "title": "Sake gokū - Salmón extremo",
+    "japaneseName": "鮭極",
+    "description": "Salmón, queso crema, y aguacate, cubierto con salmón flameado, salsa de anguila y mayo kimuchi, acabado con perlas de arroz crujiente.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "MILK",
+      "GLUTEN",
+      "SOYBEANS"
+    ],
+    "pieces": 8,
+    "price": 12.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ca"
+    },
+    "title": "Tsuki - Luna",
+    "japaneseName": "月",
+    "description": "Rollo sin arroz, relleno de salmón, atún, lubina, rúcula, kanikama y aguacate, con un toque de semillas y aceite de sésamo.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "SOYBEANS"
+    ],
+    "pieces": 10,
+    "price": 16,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7cb"
+    },
+    "title": "Taiyō - Sol",
+    "japaneseName": "太陽",
+    "description": "Rollo sin arroz, envuelto en papel de soja, relleno de rúcula, mango, langostino crujiente, kanikama, mayonesa japonesa y masago (huevas de pez capelán) acompañado de una salsa cítrica especial",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 10,
+    "price": 14.9,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7cc"
+    },
+    "title": "Bakemono - El Monstruo",
+    "japaneseName": "化け物",
+    "description": "Langostino crujiente, mayo kimuchi y aguacate, cubierto de cortes de salmón y ensaladilla de kanikama, flameado, bañado en salsa de anguila y masago (huevas de pez capelán).",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "CRUSTACEANS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK",
+      "SESAME_SEEDS"
+    ],
+    "pieces": 8,
+    "price": 14.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7cd"
+    },
+    "title": "Guay-kerí",
+    "japaneseName": "グアイケリ",
+    "description": "Langostino crujiente y aguacate, cubierto de láminas de mango, un toque picante y salsa de tamarindo.",
+    "category": "SPECIAL_MAKI",
+    "allergens": [
+      "CRUSTACEANS",
+      "EGGS",
+      "GLUTEN",
+      "SOYBEANS",
+      "MILK"
+    ],
+    "pieces": 8,
+    "price": 12.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7ce"
+    },
+    "title": "Tora - Tigre",
+    "japaneseName": "虎",
+    "description": "Salmón, queso crema y aguacate, bañado en salsa de anguila, mayonesa kimuchi y coronado con masago (huevas de pez capelán).",
+    "category": "HOT_MAKI",
+    "allergens": [
+      "FISH",
+      "EGGS",
+      "GLUTEN",
+      "SOYBEANS"
+    ],
+    "pieces": 10,
+    "price": 13.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7cf"
+    },
+    "title": "Ebi Daigo",
+    "japaneseName": "醍醐",
+    "description": "Langostino crujiente y aguacate con salsa de anguila, mayo kimuchi y sésamo tostado.",
+    "category": "HOT_MAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "CRUSTACEANS",
+      "SOYBEANS",
+      "MILK"
+    ],
+    "pieces": 10,
+    "price": 13.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d0"
+    },
+    "title": "Ura ura - Uramaki frito",
+    "japaneseName": "裏裏",
+    "description": "Salmón, queso crema y aguacate, coronado con wakame y masago (huevas de pez capelán) y bañado en salsa de anguila.",
+    "category": "HOT_MAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "EGGS",
+      "FISH",
+      "GLUTEN",
+      "MILK"
+    ],
+    "pieces": 8,
+    "price": 13.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d1"
+    },
+    "title": "Yōtei",
+    "japaneseName": "羊蹄",
+    "description": "Salmón, queso crema y aguacate, coronado con tartar de salmón ligeramente picante y perlas de arroz crujiente.",
+    "category": "HOT_MAKI",
+    "allergens": [
+      "SESAME_SEEDS",
+      "EGGS",
+      "GLUTEN",
+      "FISH",
+      "SOYBEANS",
+      "MILK"
+    ],
+    "pieces": 10,
+    "price": 14.95,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d2"
+    },
+    "title": "Kubawa",
+    "japaneseName": "クバワ",
+    "description": "Rollo sin arroz, langostino crujiente, plátano macho frito, kanikama, queso crema y aguacate, bañado en salsa de anguila y terminado con perlas de arroz crujiente.",
+    "category": "HOT_MAKI",
+    "allergens": [
+      "CRUSTACEANS",
+      "GLUTEN",
+      "SOYBEANS",
+      "FISH",
+      "MILK"
+    ],
+    "pieces": 10,
+    "price": 14.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d3"
+    },
+    "title": "Combinado individual 12 piezas",
+    "japaneseName": "",
+    "description": "4 nigiri de salmón, 4 hosomaki de aguacate, 4 uramaki California.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS"
+    ],
+    "pieces": 12,
+    "price": 12.4,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d4"
+    },
+    "title": "Combinado individual salmón 12 piezas",
+    "japaneseName": "",
+    "description": "4 nigiris de salmón, 4 hosomaki salmón, 4 Filadelfia.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "MILK"
+    ],
+    "pieces": 12,
+    "price": 13.15,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d5"
+    },
+    "title": "Combinado clásico 16 piezas",
+    "japaneseName": "",
+    "description": "4 nigiri salmón, 4 hosomaki aguacate, 4 California, 4 Filadelfia.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 16,
+    "price": 16.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d6"
+    },
+    "title": "Combinado Dúo 20 piezas",
+    "japaneseName": "",
+    "description": "2 nigiri salmón, 2 nigiri atún, 4 California, 4 Filadelfia, 4 hosomaki salmón, 4 hosomaki aguacate.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 20,
+    "price": 21.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d7"
+    },
+    "title": "Combinado dúo mixto 21 piezas",
+    "japaneseName": "",
+    "description": "2 nigiri salmón, 2 nigiri atún, 4 hosomaki salmón, 4 California, 4 Filadelfia, 5 Tora.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 21,
+    "price": 25.0,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d8"
+    },
+    "title": "Combinado familiar deluxe 44 piezas",
+    "japaneseName": "",
+    "description": "4 nigiri salmón, 4 nigiri atún, 4 nigiri lubina, 8 ebi pasión, 8 ura ura, 8 katsu aguacate trufa.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 44,
+    "price": 59.5,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7d9"
+    },
+    "title": "Combinado especial deluxe 27 piezas",
+    "japaneseName": "",
+    "description": "2 nigiri salmón especial, 2 nigiri de atún, 4 nigiri de lubina especial, 8 hosomaki salmón, 4 ebi pasión, 4 sake gokú, 5 tora.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 27,
+    "price": 41.0,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7da"
+    },
+    "title": "Combinado familiar clásico 40 piezas",
+    "japaneseName": "",
+    "description": "4 nigiri salmón, 4 nigiri atún, 8 California, 8 Filadelfia, 8 hosomaki salmón, 8 hosomaki aguacate, 10 ebi daigo.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 40,
+    "price": 42.75,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7db"
+    },
+    "title": "Combinado familiar mixto 50 piezas",
+    "japaneseName": "",
+    "description": "4 nigiri salmón, 4 nigiri atún, 8 California, 8 Filadelfia, 8 hosomaki salmón, 8 hosomaki aguacate, 10 ebi daigo.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 50,
+    "price": 55.1,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7dc"
+    },
+    "title": "Combinado sanjū-san 33 piezas",
+    "japaneseName": "三十三",
+    "description": "3 nigiri salmón, 3 nigiri atún, 3 nigiri lubina, 3 nigiri anguila, 10 tora, 8 California.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS"
+    ],
+    "pieces": 33,
+    "price": 42.2,
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "69e8ce8d4b4b48e94bc6c7dd"
+    },
+    "title": "Combinado kyojin (el titán) 64 piezas",
+    "japaneseName": "巨人",
+    "description": "6 nigiri salmón, 6 nigiri atún, 8 California, 8 Filadelfia, 8 hosomaki salmón, 8 hosomaki atún, 10 michi maki, 10 Yótoi.",
+    "category": "COMBOS",
+    "allergens": [
+      "FISH",
+      "GLUTEN",
+      "EGGS",
+      "SOYBEANS",
+      "SESAME_SEEDS",
+      "CRUSTACEANS",
+      "MILK"
+    ],
+    "pieces": 64,
+    "price": 79.5,
+    "status": true
+  }
+]
