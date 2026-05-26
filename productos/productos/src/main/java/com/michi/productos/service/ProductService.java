@@ -64,9 +64,9 @@ public class ProductService {
     public ProductDTO update(ProductDTO dto, String id){
         Product product= productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se ha podido actualizar el producto " + id));
-        product.setStatus(true);
 
         productMapper.updateEntityFromDto(dto, product);
+        product.setStatus(true);
 
         Product updatedProduct= productRepository.save(product);
         return productMapper.toDto(updatedProduct);
