@@ -1,7 +1,6 @@
 package com.michi.oauth.security;
 
 import com.michi.oauth.service.JwtService;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -28,13 +27,15 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         OAuth2User user = (OAuth2User) authentication.getPrincipal();
         String token = jwtService.generateToken(user);
 
-        Cookie cookie = new Cookie("token", token);
-        cookie.setHttpOnly(true);
-        cookie.setPath("/");
-        cookie.setMaxAge(604800);
+        response.setHeader("Set-Cookie",
+                "token=" + token +
+                        "; HttpOnly" +
+                        "; Secure" +
+                        "; SameSite=None" +
+                        "; Path=/" +
+                        "; Max-Age=604800"
+        );
 
-        cookie.setSecure(false);
-        response.addCookie(cookie);
         getRedirectStrategy().sendRedirect(request, response, frontendUrl);
     }
 }
