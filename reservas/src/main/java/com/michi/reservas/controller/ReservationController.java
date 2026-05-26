@@ -39,7 +39,11 @@ public class ReservationController {
 
     @PostMapping
     public ReservationDTO create(@RequestBody ReservationDTO dto){
-        emailService.sendEmail(dto);
+        try {
+            emailService.sendEmail(dto);
+        } catch (Exception e) {
+            System.err.println("Error al enviar el correo: " + e.getMessage());
+        }
         return reservationService.create(dto);
     }
 
