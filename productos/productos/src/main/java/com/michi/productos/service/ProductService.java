@@ -46,9 +46,9 @@ public class ProductService {
                 .stream()
                 .filter(p -> name == null || p.getName().toLowerCase().contains(name.toLowerCase()))
                 .filter(p -> category == null || p.getCategory() == Category.valueOf(category.toUpperCase()))
-                .filter(p -> allergens == null || new HashSet<>(p.getAllergens()).containsAll(
-                        allergens.stream().map(Allergen::valueOf).toList()
-                ))
+                .filter(p -> allergens == null || allergens.stream()
+                        .map(Allergen::valueOf)
+                        .noneMatch(p.getAllergens()::contains))
                 .map(productMapper::toDto)
                 .toList();
     }
