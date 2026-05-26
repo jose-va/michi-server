@@ -30,7 +30,7 @@
 <div class="wrapper">
 
     <div class="header">
-        <img th:src="@{/logo_michi.png}" src="/logo_michi.png" alt="Michi Café &amp; Sushi Bar">
+        <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_michi_ikgltr.png" alt="Michi Café & Sushi Bar">
     </div>
 
     <div class="body">
@@ -42,7 +42,7 @@
         </svg>
         <h1>Su reserva ha sido confirmada</h1>
         <p>Gracias por confiar en nosotros, le estaremos esperando.<br>A continuación puede visualizar nuestra carta</p>
-        <a href="https://viewstripo.email" class="btn">Nuestra carta</a>
+        <a href="https://drive.google.com/file/d/1QdWtr490JNchaeqt4NpXElYDW_xKYeHa/view" class="btn">Nuestra carta</a>
     </div>
 
     <div class="details">
@@ -59,23 +59,23 @@
             <p class="detail-value" th:text="${guestCount}"></p>
         </div>
         <div class="detail-row">
-            <p class="detail-value" th:text="${location.name}"></p>
+            <p class="detail-label">Ubicación</p>
+            <p class="detail-value" th:text="${location}"></p>
         </div>
     </div>
 
     <div class="footer">
         <div class="footer-links">
-            <a href="https://michisushigranada.com/">SITIO WEB</a>
             <a href="https://api.whatsapp.com/send/?phone=34673821148">CONTACTO</a>
-            <a href="https://www.google.com/maps/place/Michi+Caf%C3%A9+%26+Sushi+Bar/@37.19737,-3.6047432">UBICACIÓN</a>
+            <a href="google.com/maps/place/Michi+Café+%26+Sushi+Bar/@37.19737,-3.6047432,867m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd71fd0d546fef3f:0xbae9bb74146df83e!8m2!3d37.19737!4d-3.6021683!16s%2Fg%2F11zj68qb3j?entry=tts&g_ep=EgoyMDI1MTEyMy4xIPu8ASoASAFQAw%3D%3D&skid=bcbe673a-42bc-43ba-826d-4025a9f93496">UBICACIÓN</a>
         </div>
         <hr class="footer-divider">
         <div class="footer-icons">
             <a href="https://instagram.com/michisushigranada" target="_blank">
-                <img th:src="@{/logo_instagram.png}" src="/logo_instagram.png" alt="Instagram" width="36" height="36">
+                <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_instagram_lvywlf.png" alt="Instagram" width="36" height="36">
             </a>
             <a href="https://api.whatsapp.com/send/?phone=34673821148" target="_blank">
-                <img th:src="@{/logo_whatsapp.png}" src="/logo_whatsapp.png" alt="Whatsapp" width="36" height="36">
+                <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_whatsapp_eefedk.png" alt="Whatsapp" width="36" height="36">
             </a>
         </div>
     </div>

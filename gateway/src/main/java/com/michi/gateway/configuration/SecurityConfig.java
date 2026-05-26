@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(auth -> auth
-                        .pathMatchers(HttpMethod.GET, "/auth").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/auth/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/products", "/products/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/reservations/hours").permitAll()
                         .pathMatchers(HttpMethod.POST, "/reservations").permitAll()
@@ -54,11 +54,11 @@ public class SecurityConfig {
                 Claims claims = jwtService.validateToken(cookie.getValue());
 
                 ServerHttpRequest mutated = exchange.getRequest().mutate()
-                        .header("User-Email",    claims.getSubject())
+                        .header("User-Id",    claims.getSubject())
                         .header("User-Role",  claims.get("role", String.class))
                         .header("User-Name",  claims.get("name", String.class))
                         .header("User-Picture",  claims.get("picture", String.class))
-                        .header("User-Id",  claims.get("googleId", String.class))
+                        .header("User-Email",  claims.get("email", String.class))
                         .build();
 
                 UsernamePasswordAuthenticationToken auth =

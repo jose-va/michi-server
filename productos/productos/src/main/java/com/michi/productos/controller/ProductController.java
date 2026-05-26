@@ -24,6 +24,11 @@ public class ProductController {
     private final ProductService productService;
     private final UberService uberService;
 
+    @GetMapping("/all")
+    public List<ProductDTO> findAll() {
+        return productService.all();
+    }
+
     @GetMapping("/{id}")
     public ProductDTO findByID(@PathVariable String id) {
         return productService.findByID(id);

@@ -1,6 +1,7 @@
 package com.michi.reservas.mail;
 
 import com.michi.reservas.dto.ReservationDTO;
+import com.michi.reservas.model.Location;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,10 @@ public class EmailService {
 
     public void sendEmail(ReservationDTO dto) {
         Context context = new Context();
-        context.setVariable("name", dto.name());
-        context.setVariable("date", dto.date());
-        context.setVariable("time", dto.startTime());
-        context.setVariable("guests", dto.guests());
+        context.setVariable("guestName", dto.name());
+        context.setVariable("startTime", dto.date().atTime(dto.startTime()));
+        context.setVariable("guestCount", dto.guests());
+        context.setVariable("location", dto.location() == Location.OUTSIDE ? "Terraza" : "Interior");
 
         String html = templateEngine.process("reservation-email", context);
 

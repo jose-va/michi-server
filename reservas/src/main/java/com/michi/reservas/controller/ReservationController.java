@@ -22,6 +22,14 @@ public class ReservationController {
     private final ReservationService reservationService;
     private final EmailService emailService;
 
+    @GetMapping
+    public List<ReservationDTO> findAll(
+            @RequestParam LocalDate date,
+            @RequestHeader("User-Role") String role) {
+        checkAdmin(role);
+        return reservationService.findAll(date);
+    }
+
     @GetMapping("/hours")
     public AvailableHoursDTO hours(
             @RequestParam LocalDate date,
@@ -29,21 +37,10 @@ public class ReservationController {
         return reservationService.findAvailableHours(date, guests);
     }
 
-    public List<ReservationDTO> findAll(){
-        return reservationService.findAll();
-    }
-
     @PostMapping
     public ReservationDTO create(@RequestBody ReservationDTO dto){
-//        emailService.sendEmail(dto);
+        emailService.sendEmail(dto);
         return reservationService.create(dto);
-    }
-
-    @GetMapping
-    public List<ReservationDTO> findAll(
-            @RequestHeader("User-Role") String role) {
-        checkAdmin(role);
-        return reservationService.findAll();
     }
 
     @PutMapping("/{id}")

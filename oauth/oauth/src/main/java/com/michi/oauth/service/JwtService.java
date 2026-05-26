@@ -21,11 +21,11 @@ public class JwtService {
                 .orElse("ROLE_USER");
 
         return Jwts.builder()
-                .subject(user.getAttribute("email"))
+                .subject(user.getAttribute("sub"))
                 .claim("role", role)
                 .claim("name", user.getAttribute("name"))
                 .claim("picture", user.getAttribute("picture"))
-                .claim("googleId", user.getAttribute("sub"))
+                .claim("email", user.getAttribute("email"))
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + 604800000L))
                 .signWith(Keys.hmacShaKeyFor(secretKey.getBytes()))

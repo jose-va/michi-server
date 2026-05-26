@@ -36,8 +36,8 @@ public class ReservationService {
             LocalTime.of(22, 0)
     );
 
-    public List<ReservationDTO> findAll() {
-        return reservationRepository.findAll()
+    public List<ReservationDTO> findAll(LocalDate date) {
+        return reservationRepository.findByDate(date)
                 .stream()
                 .map(reservationMapper::toDto)
                 .toList();

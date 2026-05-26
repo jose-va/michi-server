@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(value = "users")
 @Builder
 @Getter
@@ -19,5 +21,5 @@ public class User {
     private String name;
     private String picture;
     private Role role;
-    private String googleId;
+    private List<String> favoriteProducts;
 }

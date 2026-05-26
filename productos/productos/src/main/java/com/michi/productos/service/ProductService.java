@@ -21,6 +21,14 @@ public class ProductService {
     private final ProductMapper productMapper;
     private final ProductRepository productRepository;
 
+    public List<ProductDTO> all() {
+        return productRepository
+                .findAll()
+                .stream()
+                .map(productMapper::toDto)
+                .toList();
+    }
+
     public ProductDTO findByID(String id){
         return productRepository.findById(id)
                 .map(productMapper::toDto)
@@ -56,6 +64,7 @@ public class ProductService {
     public ProductDTO update(ProductDTO dto, String id){
         Product product= productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se ha podido actualizar el producto " + id));
+        product.setStatus(true);
 
         productMapper.updateEntityFromDto(dto, product);
 
