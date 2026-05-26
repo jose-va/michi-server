@@ -27,15 +27,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         OAuth2User user = (OAuth2User) authentication.getPrincipal();
         String token = jwtService.generateToken(user);
 
-        response.setHeader("Set-Cookie",
-                "token=" + token +
-                        "; HttpOnly" +
-                        "; Secure" +
-                        "; SameSite=None" +
-                        "; Path=/" +
-                        "; Max-Age=604800"
-        );
-
-        getRedirectStrategy().sendRedirect(request, response, frontendUrl);
+        getRedirectStrategy().sendRedirect(request, response, frontendUrl + "/auth?token=" + token);
     }
 }
