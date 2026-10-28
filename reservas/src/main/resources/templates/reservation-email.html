@@ -3,83 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reserva Confirmada</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="color-scheme" content="dark">
+    <meta name="supported-color-schemes" content="dark">
+    <title>Reserva confirmada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; background-color: #333; font-family: Roboto, Arial, sans-serif; }
-        .wrapper { max-width: 600px; margin: 0 auto; background: #fff; }
-        .header { padding: 20px; text-align: center; border-bottom: 1px solid #ccc; }
-        .header img { width: 250px; height: auto; }
-        .body { padding: 30px 20px; text-align: center; }
-        .body h1 { font-family: 'Times New Roman', serif; font-weight: normal; font-size: 30px; color: #333; margin: 10px 0; }
-        .body p { font-size: 16px; color: #333; line-height: 1.5; margin: 10px 0; }
-        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #bbe8e1; color: #272643; border-radius: 3px; text-decoration: none; font-size: 15px; }
-        .details { margin: 20px; background: #f9f9f9; border-radius: 6px; text-align: left; overflow: hidden; }
-        .detail-row { padding: 12px 20px; border-top: 1px solid #eee; }
-        .detail-row:first-child { border-top: none; }
-        .detail-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 2px; }
-        .detail-value { font-size: 16px; color: #333; font-weight: bold; margin: 0; }
-        .footer { background: #fafafa; border-top: 1px solid #ccc; padding: 15px 20px; text-align: center; }
-        .footer-links a { font-size: 14px; color: #333; text-decoration: none; margin: 0 10px; }
-        .footer-divider { border: none; border-top: 1px solid #ccc; margin: 10px 0; }
-        .footer-icons { margin-top: 10px; }
-        .footer-icons a { display: inline-block; margin: 0 5px; }
+        body { margin: 0; padding: 0; background-color: #0e0e0f; }
+        body, td, p, a, h1 { font-family: Montserrat, 'Helvetica Neue', Arial, sans-serif; }
+        a { color: #E3E3E3; }
+        @media only screen and (max-width: 620px) {
+            .container { width: 100% !important; }
+            .px { padding-left: 18px !important; padding-right: 18px !important; }
+            .col { display: block !important; width: 100% !important; box-sizing: border-box; }
+            .col-gap { border-left: 0 !important; border-top: 1px solid #323235 !important; }
+            .h1 { font-size: 24px !important; }
+        }
     </style>
 </head>
-<body>
-<div class="wrapper">
+<body style="margin:0;padding:0;background-color:#0e0e0f;">
 
-    <div class="header">
-        <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_michi_ikgltr.png" alt="Michi Café & Sushi Bar">
-    </div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#0e0e0f;font-size:1px;line-height:1px;"
+     th:text="${previewText}">Reserva confirmada</div>
 
-    <div class="body">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="2"/>
-            <line x1="20" y1="8" x2="20" y2="20" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-            <line x1="20" y1="20" x2="28" y2="26" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="20" cy="20" r="2" fill="#333"/>
-        </svg>
-        <h1>Su reserva ha sido confirmada</h1>
-        <p>Gracias por confiar en nosotros, le estaremos esperando.<br>A continuación puede visualizar nuestra carta</p>
-        <a href="https://drive.google.com/file/d/1QdWtr490JNchaeqt4NpXElYDW_xKYeHa/view" class="btn">Nuestra carta</a>
-    </div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0e0e0f;">
+    <tr>
+        <td align="center" style="padding:28px 12px;">
 
-    <div class="details">
-        <div class="detail-row">
-            <p class="detail-label">Nombre</p>
-            <p class="detail-value" th:text="${guestName}"></p>
-        </div>
-        <div class="detail-row">
-            <p class="detail-label">Fecha y hora</p>
-            <p class="detail-value" th:text="${#temporals.format(startTime, 'dd/MM/yyyy HH:mm')}"></p>
-        </div>
-        <div class="detail-row">
-            <p class="detail-label">Número de invitados</p>
-            <p class="detail-value" th:text="${guestCount}"></p>
-        </div>
-        <div class="detail-row">
-            <p class="detail-label">Ubicación</p>
-            <p class="detail-value" th:text="${location}"></p>
-        </div>
-    </div>
+            <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0"
+                   style="width:600px;max-width:600px;background-color:#1c1c1e;border-radius:16px;overflow:hidden;border:1px solid #2a2a2d;">
 
-    <div class="footer">
-        <div class="footer-links">
-            <a href="https://api.whatsapp.com/send/?phone=34673821148">CONTACTO</a>
-            <a href="google.com/maps/place/Michi+Café+%26+Sushi+Bar/@37.19737,-3.6047432,867m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd71fd0d546fef3f:0xbae9bb74146df83e!8m2!3d37.19737!4d-3.6021683!16s%2Fg%2F11zj68qb3j?entry=tts&g_ep=EgoyMDI1MTEyMy4xIPu8ASoASAFQAw%3D%3D&skid=bcbe673a-42bc-43ba-826d-4025a9f93496">UBICACIÓN</a>
-        </div>
-        <hr class="footer-divider">
-        <div class="footer-icons">
-            <a href="https://instagram.com/michisushigranada" target="_blank">
-                <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_instagram_lvywlf.png" alt="Instagram" width="36" height="36">
-            </a>
-            <a href="https://api.whatsapp.com/send/?phone=34673821148" target="_blank">
-                <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_whatsapp_eefedk.png" alt="Whatsapp" width="36" height="36">
-            </a>
-        </div>
-    </div>
+                <!-- Franja de color de marca -->
+                <tr>
+                    <td height="4" style="height:4px;line-height:4px;font-size:0;background-color:#005F5A;">&nbsp;</td>
+                </tr>
 
-</div>
+                <!-- Logo -->
+                <tr>
+                    <td align="center" style="padding:36px 20px 28px;">
+                        <img src="https://res.cloudinary.com/drhqpksqc/image/upload/v1792601457/LOGO-VERT-WHITE_sqqbb8.png"
+                             alt="Michi Café &amp; Sushi Bar" width="130" style="width:130px;max-width:100%;height:auto;display:block;border:0;">
+                    </td>
+                </tr>
+
+                <!-- Cabecera de confirmación -->
+                <tr>
+                    <td align="center" class="px" style="padding:8px 32px 8px;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+                            <tr>
+                                <td align="center" valign="middle" width="56" height="56" bgcolor="#005F5A"
+                                    style="width:56px;height:56px;background-color:#005F5A;border-radius:28px;font-size:28px;line-height:56px;font-weight:700;color:#ffffff;text-align:center;">
+                                    &#10003;
+                                </td>
+                            </tr>
+                        </table>
+                        <h1 class="h1" style="margin:22px 0 10px;font-size:28px;line-height:1.25;font-weight:700;color:#f5f5f5;">Su reserva ha sido confirmada</h1>
+                        <p style="margin:0;font-size:15px;line-height:1.7;color:#b8b8bb;">
+                            Gracias por confiar en nosotros, le estaremos esperando.<br>
+                            A continuación puede visualizar nuestra carta.
+                        </p>
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto 0;">
+                            <tr>
+                                <td align="center" bgcolor="#005F5A" style="background-color:#005F5A;border-radius:10px;">
+                                    <a href="https://drive.google.com/file/d/1QdWtr490JNchaeqt4NpXElYDW_xKYeHa/view"
+                                       style="display:inline-block;padding:14px 34px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:10px;">Ver nuestra carta</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Detalles de la reserva -->
+                <tr>
+                    <td class="px" style="padding:32px 32px 8px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="background-color:#252528;border-radius:12px;border:1px solid #323235;">
+
+                            <!-- Fecha y hora: dato principal -->
+                            <tr>
+                                <td style="padding:20px 22px;border-bottom:1px solid #323235;border-left:4px solid #1fa89f;">
+                                    <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Fecha y hora</p>
+                                    <p style="margin:0;font-size:20px;line-height:1.3;font-weight:700;color:#ffffff;" th:text="${dateTimeText}"></p>
+                                </td>
+                            </tr>
+
+                            <!-- Invitados + Ubicación en dos columnas -->
+                            <tr>
+                                <td style="padding:0;border-bottom:1px solid #323235;">
+                                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td class="col" width="50%" valign="top" style="padding:16px 22px;">
+                                                <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Invitados</p>
+                                                <p style="margin:0;font-size:16px;font-weight:600;color:#f2f2f2;" th:text="${guestCount}"></p>
+                                            </td>
+                                            <td class="col col-gap" width="50%" valign="top" style="padding:16px 22px;border-left:1px solid #323235;">
+                                                <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Ubicación</p>
+                                                <p style="margin:0;font-size:16px;font-weight:600;color:#f2f2f2;" th:text="${location}"></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding:16px 22px;">
+                                    <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Nombre</p>
+                                    <p style="margin:0;font-size:16px;font-weight:600;color:#f2f2f2;" th:text="${guestName}"></p>
+                                </td>
+                            </tr>
+                            <tr th:if="${phone != null and !phone.isBlank()}">
+                                <td style="padding:16px 22px;border-top:1px solid #323235;">
+                                    <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Teléfono</p>
+                                    <p style="margin:0;font-size:16px;font-weight:600;color:#f2f2f2;" th:text="${phone}"></p>
+                                </td>
+                            </tr>
+                            <tr th:if="${observations != null and !observations.isBlank()}">
+                                <td style="padding:16px 22px;border-top:1px solid #323235;">
+                                    <p style="margin:0 0 4px;font-size:12px;letter-spacing:0.6px;color:#8d8d92;">Observaciones</p>
+                                    <p style="margin:0;font-size:16px;line-height:1.5;font-weight:600;color:#f2f2f2;" th:text="${observations}"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Cancelación -->
+                <tr>
+                    <td align="center" class="px" style="padding:20px 32px 32px;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 18px;">
+                            <tr>
+                                <td align="center" style="border:1px solid #6b6b70;border-radius:10px;">
+                                    <a th:href="${cancelUrl}"
+                                       style="display:inline-block;padding:11px 26px;font-size:14px;font-weight:600;color:#E3E3E3;text-decoration:none;border-radius:10px;">Cancelar reserva</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <p style="margin:0;font-size:13px;line-height:1.7;color:#8d8d92;">
+                            Puede cancelar su reserva hasta 2 horas antes.<br>
+                            Para modificarla, escríbanos por
+                            <a href="https://api.whatsapp.com/send/?phone=34673821148" style="color:#E3E3E3;">WhatsApp</a>
+                            o llámenos al
+                            <a href="tel:+34673821148" style="color:#E3E3E3;white-space:nowrap;">+34 673 82 11 48</a>.
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Pie -->
+                <tr>
+                    <td align="center" style="background-color:#161618;border-top:1px solid #2a2a2d;padding:22px 20px 24px;">
+                        <p style="margin:0;font-size:12px;letter-spacing:1px;">
+                            <a href="https://api.whatsapp.com/send/?phone=34673821148" style="color:#E3E3E3;text-decoration:none;margin:0 12px;">CONTACTO</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=37.19737,-3.6021683" style="color:#E3E3E3;text-decoration:none;margin:0 12px;">UBICACIÓN</a>
+                        </p>
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:16px auto 0;">
+                            <tr>
+                                <td style="padding:0 6px;">
+                                    <a href="https://instagram.com/michisushigranada" target="_blank">
+                                        <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_instagram_lvywlf.png"
+                                             alt="Instagram" width="34" height="34" style="display:block;border:0;">
+                                    </a>
+                                </td>
+                                <td style="padding:0 6px;">
+                                    <a href="https://api.whatsapp.com/send/?phone=34673821148" target="_blank">
+                                        <img src="https://res.cloudinary.com/drhqpksqc/image/upload/q_auto/f_auto/v1779789346/logo_whatsapp_eefedk.png"
+                                             alt="WhatsApp" width="34" height="34" style="display:block;border:0;">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

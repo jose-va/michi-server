@@ -3,21 +3,28 @@ package com.michi.reservas.service;
 import com.michi.reservas.dto.AvailableHoursDTO;
 import com.michi.reservas.dto.ReservationDTO;
 import com.michi.reservas.mapper.ReservationMapper;
-import com.michi.reservas.model.Location;
-import com.michi.reservas.model.Reservation;
-import com.michi.reservas.model.State;
-import com.michi.reservas.model.Table;
+import com.michi.reservas.model.*;
 import com.michi.reservas.repository.ReservationRepository;
 import com.michi.reservas.repository.TableRepository;
+import org.springframework.dao.DuplicateKeyException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.time.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class ReservationService {
+
+    private static final ZoneId RESTAURANT_ZONE = ZoneId.of("Europe/Madrid");
+    private static final long CANCELLATION_HOURS = 2;
+    private static final LocalTime MONDAY_OPENING = LocalTime.of(20, 0);
 
     private final ReservationRepository reservationRepository;
     private final ReservationMapper reservationMapper;
@@ -43,16 +50,51 @@ public class ReservationService {
                 .toList();
     }
 
-    public AvailableHoursDTO findAvailableHours(LocalDate date, int guests) {
-        List<Reservation> allReservations = reservationRepository.findByDate(date);
+    public List<ReservationDTO> findByUser(String userId, LocalDate date) {
+        List<Reservation> reservations = date == null
+                ? reservationRepository.findByUser(userId)
+                : reservationRepository.findByUserAndDate(userId, date);
+        return reservations.stream()
+                .map(r -> reservationMapper.toDto(r).withCancelToken(
+                        r.getState() == State.CONFIRMED ? r.getCancelToken() : null))
+                .toList();
+    }
 
+    private boolean isBookable(LocalDate date, LocalTime time) {
+        return LocalDateTime.of(date, time).isAfter(LocalDateTime.now(RESTAURANT_ZONE));
+    }
+
+    /**
+     * Horas permitidas según el día de la semana.
+     * Los lunes solo se reserva de 20:00 a 22:00.
+     */
+    private List<LocalTime> hoursFor(LocalDate date) {
+        if (date.getDayOfWeek() == DayOfWeek.MONDAY) {
+            return HOURS_LIST.stream()
+                    .filter(h -> !h.isBefore(MONDAY_OPENING))
+                    .toList();
+        }
+        return HOURS_LIST;
+    }
+
+    public AvailableHoursDTO findAvailableHours(LocalDate date, int guests) {
+        List<LocalTime> candidateHours = hoursFor(date).stream()
+                .filter(hour -> isBookable(date, hour))
+                .toList();
+
+        if (candidateHours.isEmpty()) {
+            return new AvailableHoursDTO(List.of(), List.of());
+        }
+
+        List<Reservation> allReservations =
+                reservationRepository.findByDateAndStateNot(date, State.CANCELLED);
         List<Table> allTables = tableRepository.findAll();
 
-        List<LocalTime> insideHours = HOURS_LIST.stream()
+        List<LocalTime> insideHours = candidateHours.stream()
                 .filter(hour -> isAvailable(hour, allReservations, allTables, guests, Location.INSIDE))
                 .toList();
 
-        List<LocalTime> outsideHours = HOURS_LIST.stream()
+        List<LocalTime> outsideHours = candidateHours.stream()
                 .filter(hour -> isAvailable(hour, allReservations, allTables, guests, Location.OUTSIDE))
                 .toList();
 
@@ -104,19 +146,49 @@ public class ReservationService {
         return false;
     }
 
-    public ReservationDTO create(ReservationDTO dto) {
+    private Shift shiftOf(LocalTime time) {
+        return time.isBefore(LocalTime.of(18, 0)) ? Shift.LUNCH : Shift.DINNER;
+    }
+
+    public CreatedReservation create(ReservationDTO dto) {
         Reservation reservation = reservationMapper.toEntity(dto);
+
+        if (reservation.getDate() == null
+                || reservation.getStartTime() == null
+                || reservation.getGuests() < 1
+                || !hoursFor(reservation.getDate()).contains(reservation.getStartTime())
+                || !isBookable(reservation.getDate(), reservation.getStartTime())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "INVALID_TIME");
+        }
+
+        reservation.setShift(shiftOf(reservation.getStartTime()));
+
+        String user = reservation.getUser();
+        if (user != null && !user.isBlank()
+                && reservationRepository.existsByUserAndDateAndShiftAndState(
+                user, reservation.getDate(), reservation.getShift(), State.CONFIRMED)) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "RESERVATION_ALREADY_EXISTS");
+        }
+
         reservation.setTableIds(assignTables(reservation));
         reservation.setState(State.CONFIRMED);
-        return reservationMapper.toDto(reservationRepository.save(reservation));
+        reservation.setCancelToken(UUID.randomUUID().toString());
+
+        Reservation saved;
+        try {
+            saved = reservationRepository.save(reservation);
+        } catch (DuplicateKeyException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "RESERVATION_ALREADY_EXISTS");
+        }
+        return new CreatedReservation(reservationMapper.toDto(saved), saved.getId(), saved.getCancelToken());
     }
 
     private List<String> assignTables(Reservation reservation) {
         LocalTime startTime = reservation.getStartTime();
         LocalTime endTime = startTime.plusMinutes(90);
 
-        List<Reservation> allReservations = reservationRepository.findByDate(
-                reservation.getDate()
+        List<Reservation> allReservations = reservationRepository.findByDateAndStateNot(
+                reservation.getDate(), State.CANCELLED
         );
         List<Table> allTables = tableRepository.findAll();
 
@@ -162,19 +234,30 @@ public class ReservationService {
             if (ids.size() >= tablesNeeded) return ids;
         }
 
-        throw new RuntimeException("No hay mesas disponibles para la reserva solicitada");
+        throw new ResponseStatusException(HttpStatus.CONFLICT, "NO_TABLES_AVAILABLE");
     }
 
-    public ReservationDTO update(ReservationDTO dto, String id) {
+    public void cancel(String id, String token, boolean admin) {
         Reservation reservation = reservationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("No se ha encontrado ninguna reserva con ID " + id));
-        reservationMapper.updateEntityFromDto(dto, reservation);
-        return reservationMapper.toDto(reservationRepository.save(reservation));
-    }
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reserva no encontrada"));
 
-    public void delete(String id) {
-        if (!reservationRepository.existsById(id))
-            throw new RuntimeException("No se ha encontrado ninguna reserva con ID " + id);
-        reservationRepository.deleteById(id);
+        if (!admin) {
+            if (token == null || reservation.getCancelToken() == null
+                    || !MessageDigest.isEqual(
+                            token.getBytes(StandardCharsets.UTF_8),
+                            reservation.getCancelToken().getBytes(StandardCharsets.UTF_8))) {
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Token de cancelación no válido");
+            }
+            if (reservation.getState() == State.CANCELLED) return;
+            LocalDateTime limit = LocalDateTime.of(reservation.getDate(), reservation.getStartTime())
+                    .minusHours(CANCELLATION_HOURS);
+            if (LocalDateTime.now(RESTAURANT_ZONE).isAfter(limit)) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT,
+                        "Ya no es posible cancelar online. Llámenos al +34 673 82 11 48");
+            }
+        }
+
+        reservation.setState(State.CANCELLED);
+        reservationRepository.save(reservation);
     }
 }

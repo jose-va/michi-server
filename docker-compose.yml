@@ -1,0 +1,87 @@
+services:
+  gateway:
+    build: ./gateway
+    env_file: .env
+    environment:
+      PORT: 8080
+      PRODUCTS_URL: http://productos:8081
+      RESERVATIONS_URL: http://reservas:8082
+      OAUTH_URL: http://oauth:8083
+      JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=50.0 -XX:+UseContainerSupport
+      SERVER_FORWARD_HEADERS_STRATEGY: native
+    expose:
+      - "8080"
+    depends_on:
+      - productos
+      - reservas
+      - oauth
+    restart: unless-stopped
+    mem_limit: 800m
+    networks:
+      - michi
+
+  productos:
+    build: ./productos
+    env_file: .env
+    environment:
+      PORT: 8081
+      JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=50.0 -XX:+UseContainerSupport
+      SERVER_FORWARD_HEADERS_STRATEGY: native
+    expose:
+      - "8081"
+    restart: unless-stopped
+    mem_limit: 800m
+    networks:
+      - michi
+
+  reservas:
+    build: ./reservas
+    env_file: .env
+    environment:
+      PORT: 8082
+      JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=50.0 -XX:+UseContainerSupport
+      SERVER_FORWARD_HEADERS_STRATEGY: native
+    expose:
+      - "8082"
+    restart: unless-stopped
+    mem_limit: 800m
+    networks:
+      - michi
+
+  oauth:
+    build: ./oauth
+    env_file: .env
+    environment:
+      PORT: 8083
+      JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=50.0 -XX:+UseContainerSupport
+      SERVER_FORWARD_HEADERS_STRATEGY: native
+    expose:
+      - "8083"
+    restart: unless-stopped
+    mem_limit: 800m
+    networks:
+      - michi
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file: .env
+    depends_on:
+      - gateway
+    restart: unless-stopped
+    networks:
+      - michi
+
+networks:
+  michi:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
