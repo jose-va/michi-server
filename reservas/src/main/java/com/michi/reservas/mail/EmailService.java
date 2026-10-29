@@ -42,6 +42,11 @@ public class EmailService {
                 .queryParam("token", cancelToken)
                 .build().toUriString();
 
+        String editUrl = UriComponentsBuilder.fromUriString(frontendUrl)
+                .path("/reservation/edit")
+                .queryParam("id", reservationId)
+                .build().toUriString();
+
         String longDate = capitalize(dto.date().format(LONG_DATE));
         String time = dto.startTime().format(TIME);
         String dateTimeText = longDate + ", " + time;
@@ -55,6 +60,7 @@ public class EmailService {
         context.setVariable("phone", dto.phone());
         context.setVariable("observations", dto.observations());
         context.setVariable("cancelUrl", cancelUrl);
+        context.setVariable("editUrl", editUrl);
         context.setVariable("previewText", "Su reserva para el " + dateTimeText + " está confirmada.");
 
         String html = templateEngine.process("reservation-email", context);

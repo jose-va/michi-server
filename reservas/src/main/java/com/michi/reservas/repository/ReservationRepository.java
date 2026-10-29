@@ -14,4 +14,7 @@ public interface ReservationRepository extends MongoRepository<Reservation, Stri
     List<Reservation> findByUserAndDate(String user, LocalDate date);
 
     boolean existsByUserAndDateAndShiftAndState(String user, LocalDate date, Shift shift, State state);
+
+    boolean existsByUserAndDateAndShiftAndStateAndIdNot(
+            String user, LocalDate date, Shift shift, State state, String id);
 }

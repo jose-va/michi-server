@@ -46,8 +46,17 @@ public class ReservationController {
     @GetMapping("/hours")
     public AvailableHoursDTO hours(
             @RequestParam LocalDate date,
-            @RequestParam int guests) {
-        return reservationService.findAvailableHours(date, guests);
+            @RequestParam int guests,
+            @RequestParam(required = false) String excludeReservationId) {
+        return reservationService.findAvailableHours(date, guests, excludeReservationId);
+    }
+
+    @GetMapping("/{id}")
+    public ReservationDTO findById(
+            @PathVariable String id,
+            @RequestHeader(value = "User-Id", required = false) String userId,
+            @RequestHeader(value = "User-Role", required = false) String role) {
+        return reservationService.findById(id, userId, "ROLE_ADMIN".equals(role));
     }
 
     @PostMapping
@@ -65,6 +74,15 @@ public class ReservationController {
             log.error("Error al enviar el correo", e);
         }
         return created.reservation();
+    }
+
+    @PutMapping("/{id}")
+    public ReservationDTO update(
+            @PathVariable String id,
+            @RequestBody ReservationDTO body,
+            @RequestHeader(value = "User-Id", required = false) String userId,
+            @RequestHeader(value = "User-Role", required = false) String role) {
+        return reservationService.update(id, body, userId, "ROLE_ADMIN".equals(role));
     }
 
     @DeleteMapping("/{id}")
