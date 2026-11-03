@@ -13,6 +13,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.io.UnsupportedEncodingException;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -23,12 +24,18 @@ public class EmailService {
     private static final DateTimeFormatter LONG_DATE = DateTimeFormatter.ofPattern("EEEE d 'de' MMMM", ES);
     private static final DateTimeFormatter SHORT_DATE = DateTimeFormatter.ofPattern("d MMM", ES);
     private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm");
+    private static final String SENDER_NAME = "Michi Café & Sushi Bar";
 
     private final JavaMailSender mailSender;
     private final TemplateEngine templateEngine;
 
-    @Value("${spring.mail.username}")
+    // Remitente visible (dirección de tu dominio verificado en Brevo).
+    @Value("${app.mail.from}")
     private String from;
+
+    // Dirección que recibe las respuestas del cliente. Vacío = no se añade.
+    @Value("${app.mail.reply-to:}")
+    private String replyTo;
 
     @Value("${app.frontend-url}")
     private String frontendUrl;
@@ -86,12 +93,15 @@ public class EmailService {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-            helper.setFrom(from);
+            helper.setFrom(from, SENDER_NAME);
+            if (replyTo != null && !replyTo.isBlank()) {
+                helper.setReplyTo(replyTo);
+            }
             helper.setTo(dto.email());
             helper.setSubject(subject);
             helper.setText(plain.toString(), html);
             mailSender.send(message);
-        } catch (MessagingException e) {
+        } catch (MessagingException | UnsupportedEncodingException e) {
             throw new RuntimeException("No se pudo enviar el correo electrónico. ", e);
         }
     }
