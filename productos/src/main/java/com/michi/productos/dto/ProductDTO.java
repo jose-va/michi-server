@@ -15,5 +15,6 @@ public record ProductDTO (
         String japaneseName,
         int pieces,
         boolean status,
-        Integer position
+        Integer position,
+        Boolean featured
 ) {}

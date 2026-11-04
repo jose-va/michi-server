@@ -21,4 +21,5 @@ public class Product {
     private double price;
     private boolean status;
     private int position;
+    private boolean featured;
 }

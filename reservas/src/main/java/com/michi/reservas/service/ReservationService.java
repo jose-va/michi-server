@@ -6,6 +6,7 @@ import com.michi.reservas.mapper.ReservationMapper;
 import com.michi.reservas.model.*;
 import com.michi.reservas.repository.ReservationRepository;
 import com.michi.reservas.repository.TableRepository;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DuplicateKeyException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final ReservationMapper reservationMapper;
     private final TableRepository tableRepository;
+    private final ApplicationEventPublisher eventPublisher;
 
     private static final List<LocalTime> HOURS_LIST = List.of(
             LocalTime.of(13, 0),
@@ -187,7 +189,7 @@ public class ReservationService {
 
     public CreatedReservation create(ReservationDTO dto) {
         Reservation reservation = reservationMapper.toEntity(dto);
-        reservation.setId(null); // evita que un id enviado por el cliente sobrescriba otra reserva
+        reservation.setId(null);
         validateSlot(reservation);
         reservation.setShift(shiftOf(reservation.getStartTime()));
         assertNoDuplicate(reservation);
@@ -202,7 +204,12 @@ public class ReservationService {
         } catch (DuplicateKeyException e) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "RESERVATION_ALREADY_EXISTS");
         }
-        return new CreatedReservation(reservationMapper.toDto(saved), saved.getId(), saved.getCancelToken());
+
+        CreatedReservation created = new CreatedReservation(
+                reservationMapper.toDto(saved), saved.getId(), saved.getCancelToken());
+
+        eventPublisher.publishEvent(created);   // dispara el WhatsApp
+        return created;
     }
 
     public ReservationDTO update(String id, ReservationDTO dto, String userId, boolean admin) {

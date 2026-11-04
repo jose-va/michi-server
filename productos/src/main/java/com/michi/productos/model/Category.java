@@ -6,7 +6,6 @@ import lombok.Getter;
 @Getter
 @RequiredArgsConstructor
 public enum Category {
-    // El orden de declaración define el orden de la carta
     NIGIRI_SUSHI("Nigiri sushi"),
     SPECIAL_MAKI("Maki especial"),
     HOSOMAKI("Hosomaki"),
@@ -15,7 +14,7 @@ public enum Category {
     COMBOS("Combinados"),
     HOT_DISHES("Platos calientes"),
     FUTOMAKI("Futomaki"),
-    // Sin imágenes por ahora, en el orden original de la carta
+    TARTAR("Tartar"),
     HOT_STARTERS("Entrantes calientes"),
     FRESH_STARTERS("Entrantes fríos"),
     SOGIZUKURI("Sogizukuri"),

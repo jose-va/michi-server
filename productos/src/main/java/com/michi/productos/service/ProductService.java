@@ -37,8 +37,34 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("No se ha encontrado al producto " + id));
     }
 
+    private static final List<Category> CATEGORY_ORDER = List.of(
+            Category.HOT_STARTERS,
+            Category.KATSUMAKI,
+            Category.SPECIAL_MAKI,
+            Category.NIGIRI_SUSHI,
+            Category.SOGIZUKURI,
+            Category.GUNKAN_SUSHI,
+            Category.ZUKE_DON,
+            Category.TEMAKI,
+            Category.HOSOMAKI,
+            Category.URAMAKI,
+            Category.FUTOMAKI,
+            Category.TARTAR,
+            Category.HOT_MAKI,
+            Category.HOT_DISHES,
+            Category.FRESH_STARTERS,
+            Category.COMBOS,
+            Category.DESSERTS
+    );
+
+    private static int categoryRank(Category category) {
+        int index = CATEGORY_ORDER.indexOf(category);
+        return index < 0 ? Integer.MAX_VALUE : index;
+    }
+
     private static final Comparator<Product> PRODUCT_ORDER = Comparator
-            .comparing(Product::getCategory, Comparator.nullsLast(Comparator.naturalOrder()))
+            .comparing((Product p) -> !p.isFeatured())
+            .thenComparingInt(p -> categoryRank(p.getCategory()))
             .thenComparingInt(Product::getPosition)
             .thenComparing(Product::getName, Comparator.nullsLast(String.CASE_INSENSITIVE_ORDER));
 
@@ -71,6 +97,13 @@ public class ProductService {
                 .toList();
     }
 
+    public List<ProductDTO> findFeatured(String name, List<String> allergens) {
+        return find(name, null, allergens)
+                .stream()
+                .filter(p -> Boolean.TRUE.equals(p.featured()))
+                .toList();
+    }
+
     public ProductDTO create(ProductDTO dto) {
         Product product = productMapper.toEntity(dto);
         product.setStatus(true);
@@ -90,6 +123,7 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("No se ha podido actualizar el producto " + id));
 
         productMapper.updateEntityFromDto(dto, product);
+        product.setFeatured(Boolean.TRUE.equals(dto.featured()));
         product.setStatus(true);
 
         Product updatedProduct= productRepository.save(product);

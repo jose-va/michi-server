@@ -49,6 +49,13 @@ public class ProductController {
         return productService.find(name, category, allergens);
     }
 
+    @GetMapping("/featured")
+    public List<ProductDTO> findFeatured(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) List<String> allergens) {
+        return productService.findFeatured(name, allergens);
+    }
+
     @PostMapping
     public ProductDTO create(
             @RequestBody ProductDTO productDTO,
