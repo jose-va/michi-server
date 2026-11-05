@@ -1,6 +1,7 @@
 package com.michi.reservas.controller;
 
 import com.michi.reservas.dto.PushSubscribeDTO;
+import com.michi.reservas.dto.PushUnsubscribeDTO;
 import com.michi.reservas.model.PushSubscription;
 import com.michi.reservas.push.PushNotificationService;
 import com.michi.reservas.push.PushProperties;
@@ -84,6 +85,16 @@ public class PushController {
             @RequestHeader("User-Role") String role) {
         checkAdmin(role);
         subscriptionRepository.deleteByEndpoint(endpoint);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Fallback para proxies que tumban el DELETE: misma lógica por POST con body.
+    @PostMapping("/subscriptions/delete")
+    public ResponseEntity<Void> unsubscribeByPost(
+            @Valid @RequestBody PushUnsubscribeDTO body,
+            @RequestHeader("User-Role") String role) {
+        checkAdmin(role);
+        subscriptionRepository.deleteByEndpoint(body.endpoint());
         return ResponseEntity.noContent().build();
     }
 
