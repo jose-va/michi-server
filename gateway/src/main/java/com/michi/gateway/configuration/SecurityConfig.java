@@ -45,6 +45,7 @@ public class SecurityConfig {
                         .pathMatchers(HttpMethod.GET, "/auth/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/products", "/products/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/reservations/hours").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/reservations/push/public-key").permitAll()
                         .pathMatchers(HttpMethod.POST, "/reservations").permitAll()
                         .pathMatchers(HttpMethod.DELETE, "/reservations/*").permitAll()
                         .anyExchange().authenticated()
