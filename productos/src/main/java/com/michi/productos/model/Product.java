@@ -15,6 +15,7 @@ public class Product {
     private String name;
     private String japaneseName;
     private String description;
+    private MainCategory mainCategory;
     private Category category;
     private List<Allergen> allergens;
     private int pieces;

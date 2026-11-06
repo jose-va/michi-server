@@ -79,16 +79,8 @@ public class PushController {
         }
     }
 
-    @DeleteMapping("/subscriptions")
-    public ResponseEntity<Void> unsubscribe(
-            @RequestParam String endpoint,
-            @RequestHeader("User-Role") String role) {
-        checkAdmin(role);
-        subscriptionRepository.deleteByEndpoint(endpoint);
-        return ResponseEntity.noContent().build();
-    }
-
-    // Fallback para proxies que tumban el DELETE: misma lógica por POST con body.
+    // El DELETE con query se eliminó: varios proxies lo tumbaban (502).
+    // La baja va por POST con body.
     @PostMapping("/subscriptions/delete")
     public ResponseEntity<Void> unsubscribeByPost(
             @Valid @RequestBody PushUnsubscribeDTO body,
