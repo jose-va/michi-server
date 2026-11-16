@@ -3,6 +3,7 @@ package com.michi.productos.uber.service;
 import com.michi.productos.model.Category;
 import com.michi.productos.model.Product;
 import com.michi.productos.repository.ProductRepository;
+import com.michi.productos.service.ProductOrder;
 import com.michi.productos.uber.client.UberClient;
 import com.michi.productos.uber.authorization.AuthService;
 import com.michi.productos.uber.dto.UberDTO;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -33,44 +35,40 @@ public class UberService {
             // 1. AUTORIZACIÓN: Obtenemos el token OAuth2 y le añadimos el prefijo Bearer.
             String accessToken = "Bearer " + authService.fetchToken();
 
-            // 2. EXTRACCIÓN: Traemos todos los productos de MongoDB.
-            List<Product> products = productRepository.findAll();
-
-            // 3. MAPEO DE ITEMS: Filtramos solo los que tienen stock y los convertimos al formato UberItem.
-            List<UberItem> uberItems = products.stream()
+            // 2. EXTRACCIÓN: Traemos todos los productos de MongoDB y los ordenamos
+            // con el mismo orden de la carta web (sin featured, solo web).
+            List<Product> products = productRepository.findAll()
+                    .stream()
                     .filter(Product::isStatus)
+                    .sorted(ProductOrder.UBER_ORDER)
+                    .toList();
+
+            // 3. MAPEO DE ITEMS: Los convertimos al formato UberItem manteniendo el orden.
+            List<UberItem> uberItems = products.stream()
                     .map(uberMapper::toUberItem)
                     .toList();
 
-            // 4. AGRUPACIÓN: Organizamos los productos por su Categoría para crear las secciones de Uber
+            // 4. AGRUPACIÓN: Organizamos los productos por su Categoría para crear las secciones de Uber.
+            // LinkedHashMap para conservar el orden de la carta.
             Map<Category, List<Product>> groupedProducts = products
                     .stream()
-                    .filter(Product::isStatus)
-                    .collect(Collectors.groupingBy(Product::getCategory));
+                    .collect(Collectors.groupingBy(Product::getCategory, LinkedHashMap::new, Collectors.toList()));
 
-            // 5. MAPEO DE CATEGORÍAS: Convertimos cada grupo en una UberCategory.
+            // 5. MAPEO DE CATEGORÍAS: Convertimos cada grupo en una UberCategory
+            // ordenada según el rango de la carta web.
             List<UberCategory> uberCategories = groupedProducts
                     .entrySet()
                     .stream()
+                    .sorted(Comparator.comparingInt(entry -> ProductOrder.categoryRank(entry.getKey())))
                     .map(entry -> uberMapper.toUberCategory(entry.getKey(), entry.getValue()))
                     .toList();
 
-            // 6. ORDENACIÓN: Definimos qué categorías queremos que salgan primero en la app.
-            Map<String, Integer> priorityMap = Map.of(
-                    "HOT_STARTERS", 1,
-                    "FRESH_STARTERS", 2,
-                    "HOT_DISHES", 3,
-                    "NIGIRI_SUSHI", 4,
-                    "SPECIAL_MAKI", 5
-            );
-
-            // 7. SEPARACIÓN DE MENÚS: Carta principal y Bebidas/Postres
-            // Menú 1: Comida
+            // 6. SEPARACIÓN DE MENÚS: Carta principal y Postres
+            // Menú 1: Comida (todo menos postres, ya en el orden de la carta)
             List<String> mainIds = uberCategories
                     .stream()
                     .map(UberCategory::getId)
-                    .filter(id -> !id.equals("DRINKS") && !id.equals("DESSERTS"))
-                    .sorted(Comparator.comparing(id -> priorityMap.getOrDefault(id, 50))) // 50 es el orden por defecto
+                    .filter(id -> !id.equals("DESSERTS"))
                     .toList();
 
             UberMenu principalMenu = new UberMenu();
@@ -79,10 +77,10 @@ public class UberService {
             principalMenu.setCategoryIds(mainIds);
             principalMenu.setServiceAvailability(uberMapper.getDefaultAvailability());
 
-            // Menú 2: Bebidas y postres
+            // Menú 2: Postres
             List<String> drinksIds = uberCategories.stream()
                     .map(UberCategory::getId)
-                    .filter(id -> id.equals("DRINKS") || id.equals("DESSERTS"))
+                    .filter(id -> id.equals("DESSERTS"))
                     .toList();
 
             UberMenu secondaryMenu = new UberMenu();

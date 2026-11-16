@@ -3,7 +3,6 @@ package com.michi.productos.service;
 import com.michi.productos.dto.ProductDTO;
 import com.michi.productos.mapper.ProductMapper;
 import com.michi.productos.model.Allergen;
-import com.michi.productos.model.Category;
 import com.michi.productos.model.MainCategory;
 import com.michi.productos.model.Product;
 import com.michi.productos.repository.ProductRepository;
@@ -13,8 +12,9 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
+
+import static com.michi.productos.service.ProductOrder.PRODUCT_ORDER;
 
 @Service
 @RequiredArgsConstructor
@@ -37,55 +37,6 @@ public class ProductService {
                 .map(productMapper::toDto)
                 .orElseThrow(() -> new RuntimeException("No se ha encontrado al producto " + id));
     }
-
-    private static final List<MainCategory> MAIN_CATEGORY_ORDER = List.of(
-            MainCategory.STARTERS,
-            MainCategory.HOT_KITCHEN,
-            MainCategory.SUSHI_CLASSIC,
-            MainCategory.MAKIS_ROLLS,
-            MainCategory.SPECIAL,
-            MainCategory.COMBOS,
-            MainCategory.DESSERTS
-    );
-
-    private static final List<Category> CATEGORY_ORDER = List.of(
-            Category.FRESH_STARTERS,
-            Category.HOT_STARTERS,
-            Category.TARTAR,
-            Category.SOGIZUKURI,
-            Category.HOT_DISHES,
-            Category.ZUKE_DON,
-            Category.NIGIRI_SUSHI,
-            Category.GUNKAN_SUSHI,
-            Category.TEMAKI,
-            Category.HOSOMAKI,
-            Category.URAMAKI,
-            Category.FUTOMAKI,
-            Category.KATSUMAKI,
-            Category.HOT_MAKI,
-            Category.SPECIAL_MAKI,
-            Category.COMBOS,
-            Category.DESSERTS
-    );
-
-    private static int mainCategoryRank(MainCategory mainCategory) {
-        if (mainCategory == null) return Integer.MAX_VALUE;
-        int index = MAIN_CATEGORY_ORDER.indexOf(mainCategory);
-        return index < 0 ? Integer.MAX_VALUE : index;
-    }
-
-    private static int categoryRank(Category category) {
-        if (category == null) return Integer.MAX_VALUE;
-        int index = CATEGORY_ORDER.indexOf(category);
-        return index < 0 ? Integer.MAX_VALUE : index;
-    }
-
-    private static final Comparator<Product> PRODUCT_ORDER = Comparator
-            .comparing((Product p) -> !p.isFeatured())
-            .thenComparingInt(p -> mainCategoryRank(p.getMainCategory()))
-            .thenComparingInt(p -> categoryRank(p.getCategory()))
-            .thenComparingInt(Product::getPosition)
-            .thenComparing(Product::getName, Comparator.nullsLast(String.CASE_INSENSITIVE_ORDER));
 
     public Page<ProductDTO> findAll(Pageable pageable) {
         List<Product> sorted = productRepository.findAll()

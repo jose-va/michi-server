@@ -35,14 +35,17 @@ public class WhatsAppListener {
             String digits = r.phone().replaceAll("\\D", "");
             if (digits.startsWith("00")) digits = digits.substring(2);
             if (digits.length() == 9) digits = "34" + digits;
+            // YCloud exige E.164 con '+'
+            String to = digits.startsWith("+") ? digits : "+" + digits;
 
-            log.info("Enviando WhatsApp a {} (reserva {})", digits, r.id());
+            log.info("Enviando WhatsApp a {} (reserva {})", to, r.id());
 
             whatsAppService.sendConfirmation(
-                    digits,
+                    to,
                     r.name(),
                     r.date().format(FMT),
-                    r.startTime().toString());
+                    r.startTime().toString(),
+                    r.id());
         } catch (Exception e) {
             log.error("Error preparando WhatsApp de la reserva", e);
         }

@@ -12,11 +12,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 @EnableAsync
 public class WhatsAppConfig {
     @Bean
-    WebClient whatsappClient(@Value("${whatsapp.base-url}") String baseUrl,
-                             @Value("${whatsapp.token}") String token) {
+    WebClient whatsappClient(@Value("${ycloud.base-url}") String baseUrl,
+                             @Value("${ycloud.api-key}") String apiKey) {
         return WebClient.builder()
                 .baseUrl(baseUrl)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                .defaultHeader("X-API-Key", apiKey)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }
